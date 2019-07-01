@@ -1,5 +1,6 @@
 package org.altervista.breve.geometricoperations.utils;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -31,5 +32,14 @@ public class LineUtilsTest {
 
         final Line l3 = Line.of(Point.of(0, -3), Point.of(1, -1));
         assertFalse(LineUtils.perpendicular(l1, l3));
+    }
+
+    @Test
+    public void testIntersection() {
+
+        final Line l1 = Line.of(Point.of(1, 1), Point.of(-1, -1));
+        final Line l2 = Line.of(Point.of(-1, 1), Point.of(1, -1));
+
+        assertEquals(Point.of(0, 0), LineUtils.intersection(l1, l2));
     }
 }

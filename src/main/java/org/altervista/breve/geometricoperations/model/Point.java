@@ -1,10 +1,12 @@
 package org.altervista.breve.geometricoperations.model;
 
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
+@EqualsAndHashCode
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Point {
     
