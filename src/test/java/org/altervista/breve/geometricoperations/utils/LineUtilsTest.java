@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.altervista.breve.geometricoperations.exception.InvalidPointException;
 import org.altervista.breve.geometricoperations.model.Line;
 import org.altervista.breve.geometricoperations.model.Point;
 import org.junit.jupiter.api.Test;
@@ -11,7 +12,7 @@ import org.junit.jupiter.api.Test;
 public class LineUtilsTest {
     
     @Test
-    public void testParallel() {
+    public void testParallel() throws InvalidPointException {
         
         final Line l1 = Line.of(Point.of(-1, 0), Point.of(0, 1));
 
@@ -23,7 +24,7 @@ public class LineUtilsTest {
     }
 
     @Test
-    public void testPerpendicular() {
+    public void testPerpendicular() throws InvalidPointException {
         
         final Line l1 = Line.of(Point.of(1, 1), Point.of(-1, -1));
 
@@ -35,7 +36,7 @@ public class LineUtilsTest {
     }
 
     @Test
-    public void testIntersection() {
+    public void testIntersection() throws InvalidPointException {
 
         final Line l1 = Line.of(Point.of(1, 1), Point.of(-1, -1));
         final Line l2 = Line.of(Point.of(-1, 1), Point.of(1, -1));

@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 public class PointTest {
     
+	@Test
     public void testOfDoubleDouble() {
         
         final Point p = Point.of(1, 10);

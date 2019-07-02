@@ -1,7 +1,10 @@
 package org.altervista.breve.geometricoperations.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.altervista.breve.geometricoperations.exception.InvalidPointException;
 import org.junit.jupiter.api.Test;
 
 public class LineTest {
@@ -9,14 +12,25 @@ public class LineTest {
     @Test
     public void testOfDoubleDouble() {
 
-        final Line l = Line.of(1, 0);
+        final Line l1 = Line.of(1, 0);
 
-        assertEquals(1, l.getSlope());
-        assertEquals(0, l.getYIntercepts());
+        assertFalse(l1.isHorizontal());
+        assertFalse(l1.isVertical());
+        
+        assertEquals(1, l1.getSlope());
+        assertEquals(0, l1.getYIntercepts());
+        
+        final Line l2 = Line.of(0, 2);
+
+        assertTrue(l2.isHorizontal());
+        assertFalse(l2.isVertical());
+        
+        assertEquals(0, l2.getSlope());
+        assertEquals(2, l2.getYIntercepts());
     }
 
     @Test
-    public void testOfPointPoint() {
+    public void testOfPointPoint() throws InvalidPointException {
 
         final Line l1 = Line.of(Point.of(1, 1), Point.of(-1, -1));
 
