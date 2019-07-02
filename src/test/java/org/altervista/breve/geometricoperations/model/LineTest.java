@@ -21,6 +21,8 @@ public class LineTest {
         
         assertEquals(1, l1.getSlope());
         assertEquals(0, l1.getYIntercepts());
+
+        assertNull(l1.getXIntercepts());
         
         final Line l2 = Line.of(0, 2);
 
@@ -29,6 +31,8 @@ public class LineTest {
         
         assertEquals(0, l2.getSlope());
         assertEquals(2, l2.getYIntercepts());
+        
+        assertNull(l2.getXIntercepts());
     }
 
     @Test
@@ -62,6 +66,7 @@ public class LineTest {
         assertEquals(0, l1.getYIntercepts());
         assertFalse(l1.isHorizontal());
         assertFalse(l1.isVertical());
+        assertNull(l1.getXIntercepts());
 
         final Line l2 = Line.of(Point.of(0, -2), Point.of(2, 0));
 
@@ -69,6 +74,7 @@ public class LineTest {
         assertEquals(-2, l2.getYIntercepts());
         assertFalse(l2.isHorizontal());
         assertFalse(l2.isVertical());
+        assertNull(l2.getXIntercepts());
 
         final Line l3 = Line.of(Point.of(-1, 0), Point.of(0, 1));
 
@@ -76,6 +82,7 @@ public class LineTest {
         assertEquals(1, l3.getYIntercepts());
         assertFalse(l3.isHorizontal());
         assertFalse(l3.isVertical());
+        assertNull(l3.getXIntercepts());
 
         final Line l4 = Line.of(Point.of(5, -5), Point.of(5, 5));
 
@@ -83,6 +90,7 @@ public class LineTest {
         assertNull(l4.getYIntercepts());
         assertFalse(l4.isHorizontal());
         assertTrue(l4.isVertical());
+        assertEquals(5, l4.getXIntercepts());
 
         final Line l5 = Line.of(Point.of(-4, 5), Point.of(4, 5));
 
@@ -90,5 +98,6 @@ public class LineTest {
         assertEquals(5, l5.getYIntercepts());
         assertTrue(l5.isHorizontal());
         assertFalse(l5.isVertical());
+        assertNull(l5.getXIntercepts());
     }
 }

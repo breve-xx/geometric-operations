@@ -18,6 +18,8 @@ public class Line {
     private Double slope;
     private Double yIntercepts;
 
+    private Double xIntercepts;
+
     public static Line of(final double slope, final double yIntercepts) {
         final Line l = new Line();
 
@@ -45,6 +47,8 @@ public class Line {
         	
         	l.slope = (p1.getY() - p2.getY()) / (p1.getX() - p2.getX()) + 0.0; // + 0.0 is needed to avoid the -0.0 double problem.
             l.yIntercepts = p1.getY() - p1.getX() * l.slope;
+        } else {
+            l.xIntercepts = p1.getX();
         }
         
         return l;
